@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Student\StoreRequest;
+use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Student;
 use App\Services\StudentService;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -24,6 +25,12 @@ class StudentController extends Controller
         return view('students.index', compact('students'));
     }
 
+    public function dashboard()
+    {
+        $students = Student::latest()->get();
+        return view('dashboard', compact('students'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -35,11 +42,11 @@ class StudentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $this->studentService->store($request->validated());
 
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success', 'Student created successfully.');
     }
 
     /**
@@ -53,7 +60,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Student $student)
     {
         return view('students.edit', compact('student'));
     }
@@ -61,11 +68,11 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update( $request, Student $student)
+    public function update(UpdateRequest $request, Student $student)
     {
         $this->studentService->update($student, $request->validated());
 
-        return redirect()->route('students.index');
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
     }
 
     /**
@@ -75,6 +82,6 @@ class StudentController extends Controller
     {
         $this->studentService->delete($student);
 
-        return back();
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
 }
