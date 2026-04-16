@@ -7,6 +7,7 @@ use App\Http\Requests\Student\StoreRequest;
 use App\Http\Requests\Student\UpdateRequest;
 use App\Models\Student;
 use App\Services\StudentService;
+use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
@@ -19,10 +20,24 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $students = Student::latest()->get();
+        $search = $request->search;
+
+        $students = Student::when($search, function ($q) use ($search) {
+            $q->where(function ($query) use ($search) {
+                $query->where('name', 'like', "%{$search}%")
+                    ->orWhere('email', 'like', "%{$search}%")
+                    ->orWhere('course', 'like', "%{$search}%");
+            });
+        })
+            ->latest()
+            ->paginate(10)
+            ->withQueryString(); // 🔥 IMPORTANT
+
         return view('students.index', compact('students'));
+        // $students = Student::latest()->get();
+        // return view('students.index', compact('students'));
     }
 
     public function dashboard()
