@@ -10,9 +10,9 @@
     <body class="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(255,255,255,0.35),_transparent_24%),linear-gradient(135deg,_#19b8ed_0%,_#53d8ff_48%,_#15b3ea_100%)] text-slate-800 dark:bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.16),_transparent_18%),linear-gradient(135deg,_#071826_0%,_#0f2740_42%,_#08131f_100%)] dark:text-slate-100">
         <div class="mx-auto flex min-h-screen max-w-xl items-center justify-center px-4 py-10">
             <div class="grid w-full overflow-hidden rounded-[32px] border border-white/50 bg-white/40 shadow-[0_32px_80px_rgba(8,65,105,0.22)] backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/65 dark:shadow-[0_32px_80px_rgba(0,0,0,0.45)]">
-                <div class="flex justify-end p-4 pb-0">
+                {{-- <div class="flex justify-end p-4 pb-0">
                     @include('partials.theme-toggle')
-                </div>
+                </div> --}}
                 <!-- <section class="hidden bg-[linear-gradient(180deg,rgba(255,255,255,0.20),rgba(255,255,255,0.04))] p-10 text-white lg:flex lg:flex-col lg:justify-between">
                     <div>
                         <p class="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">Student Admin</p>

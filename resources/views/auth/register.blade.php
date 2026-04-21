@@ -11,9 +11,9 @@
         <div class="mx-auto flex min-h-screen max-w-xl items-center justify-center px-4 py-10">
             <!-- <div class="grid w-full overflow-hidden rounded-[32px] border border-white/50 bg-white/40 shadow-[0_32px_80px_rgba(8,65,105,0.22)] backdrop-blur-xl lg:grid-cols-[0.95fr_1.05fr]"> -->
             <div class="grid w-full overflow-hidden rounded-[32px] border border-white/50 bg-white/40 shadow-[0_32px_80px_rgba(8,65,105,0.22)] backdrop-blur-xl dark:border-slate-700/60 dark:bg-slate-900/65 dark:shadow-[0_32px_80px_rgba(0,0,0,0.45)]">
-            <div class="flex justify-end p-4 pb-0">
+            {{-- <div class="flex justify-end p-4 pb-0">
                 @include('partials.theme-toggle')
-            </div>
+            </div> --}}
             <section class="bg-white/92 p-6 md:p-10 dark:bg-slate-900/85">
                     <div class="mx-auto max-w-md">
                         <div class="mb-8">

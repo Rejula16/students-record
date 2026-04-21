@@ -11,12 +11,12 @@ Route::get('/register', fn() => view('auth.register'));
 Route::post('/login', [AuthController::class,'login']);
 Route::post('/register', [AuthController::class,'register']);
 
-// Route::middleware('auth')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::resource('students', StudentController::class);
     Route::post('/logout', [AuthController::class,'logout']);
     Route::get('dashboard', [StudentController::class, 'dashboard'])->name('dashboard');
-// });
+});
 
 Route::get('/', function () {
     return view('welcome');
