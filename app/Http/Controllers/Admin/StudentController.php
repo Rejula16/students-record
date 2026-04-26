@@ -32,7 +32,7 @@ class StudentController extends Controller
             });
         })
             ->latest()
-            ->paginate(10)
+            ->paginate(5)
             ->withQueryString(); // 🔥 IMPORTANT
 
         return view('students.index', compact('students'));
@@ -45,6 +45,12 @@ class StudentController extends Controller
         $students = Student::latest()->get();
         return view('dashboard', compact('students'));
     }
+
+     public function weather()
+    {
+        return view('weather');
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -70,9 +70,13 @@
                                 <td class="px-6 py-4 font-semibold text-slate-800 dark:text-slate-100">#{{ $student->id }}</td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
-                                        <div class="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-blue-400 text-sm font-semibold text-white">
-                                            {{ strtoupper(substr($student->name, 0, 1)) }}
-                                        </div>
+                                        <!-- <div class="mr-3 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-blue-400 text-sm font-semibold text-white"> -->
+                                        <img
+                                            src="{{ asset('storage/' . $student->image) }}"
+                                            alt="{{ strtoupper(substr($student->name, 0, 1)) }}"
+                                            class="mr-3 flex h-10 w-10 items-center justify-center object-cover rounded-full">
+                                        <!-- {{ strtoupper(substr($student->name, 0, 1)) }} -->
+                                        <!-- </div> -->
                                         <span class="font-medium text-slate-700 dark:text-slate-100">{{ $student->name }}</span>
                                     </div>
                                 </td>

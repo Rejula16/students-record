@@ -31,6 +31,13 @@
             Student Form
         </a>
 
+        <a href="{{ route('weather.index') }}" class="flex items-center gap-3 rounded-2xl px-4 py-3 transition {{ request()->routeIs('weather.*') ? 'bg-gradient-to-r from-sky-50 to-cyan-50 font-medium text-sky-700 shadow-sm dark:from-sky-500/20 dark:to-cyan-500/15 dark:text-sky-300 dark:shadow-none' : 'text-slate-500 hover:bg-white/60 hover:text-slate-700 dark:text-slate-400 dark:hover:bg-slate-800/60 dark:hover:text-slate-100' }}">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Weather
+        </a>
+
         <div class="flex items-center gap-3 rounded-2xl px-4 py-3 text-slate-500 dark:text-slate-400">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Z"/>
